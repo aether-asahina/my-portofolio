@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aether.SYS // PORTFOLIO</title>
+<title>AETHER.SYS // PORTFOLIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -11,6 +11,7 @@
     --green: #00ff88;
     --red: #ff3366;
     --yellow: #ffcc00;
+    --purple: #bf5fff;
     --bg: #050a0f;
     --bg2: #0a1520;
     --bg3: #0d1f2d;
@@ -22,7 +23,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -39,28 +39,13 @@
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.08) 2px,
-      rgba(0,0,0,0.08) 4px
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
     );
     pointer-events: none;
     z-index: 9999;
   }
 
-  /* NOISE OVERLAY */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0.4;
-  }
-
-  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--cyan); }
@@ -70,7 +55,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(5,10,15,0.95);
+    background: rgba(5,10,15,0.96);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(10px);
     padding: 0 2rem;
@@ -87,8 +72,7 @@
     letter-spacing: 2px;
     text-decoration: none;
   }
-
-  .nav-logo span { color: var(--green); }
+  .nav-logo span { color: var(--purple); }
 
   .nav-status {
     display: flex;
@@ -122,7 +106,6 @@
     transition: color 0.2s;
     text-transform: uppercase;
   }
-
   .nav-links a:hover { color: var(--cyan); }
 
   /* HERO */
@@ -164,11 +147,19 @@
     align-items: center;
     gap: 0.5rem;
   }
-
   .hero-tag::before {
     content: '';
     width: 20px; height: 1px;
     background: var(--green);
+  }
+
+  .hero-alias {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--purple);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
   }
 
   .hero-name {
@@ -184,24 +175,20 @@
     position: relative;
     color: var(--cyan);
   }
-
   .hero-name .glitch::before,
   .hero-name .glitch::after {
     content: attr(data-text);
     position: absolute;
     top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
   }
-
   .hero-name .glitch::before {
     color: var(--red);
     animation: glitch1 3s infinite;
     clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
   }
-
   .hero-name .glitch::after {
-    color: var(--green);
+    color: var(--purple);
     animation: glitch2 3s infinite;
     clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
   }
@@ -212,7 +199,6 @@
     94% { transform: translateX(3px); opacity: 1; }
     96% { transform: translateX(0); opacity: 0; }
   }
-
   @keyframes glitch2 {
     0%, 90%, 100% { transform: translateX(0); opacity: 0; }
     93% { transform: translateX(3px); opacity: 1; }
@@ -222,10 +208,27 @@
 
   .hero-sub {
     font-family: var(--mono);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--cyan);
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
+  }
+
+  .hero-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .role-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--purple);
+    border: 1px solid rgba(191,95,255,0.35);
+    padding: 0.25rem 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   .hero-desc {
@@ -258,7 +261,6 @@
     overflow: hidden;
     transition: color 0.3s;
   }
-
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -268,7 +270,6 @@
     transition: left 0.3s;
     z-index: -1;
   }
-
   .btn-primary:hover { color: var(--bg); }
   .btn-primary:hover::before { left: 0; }
 
@@ -278,24 +279,20 @@
     letter-spacing: 2px;
     padding: 0.75rem 1.75rem;
     background: transparent;
-    border: 1px solid rgba(0,255,136,0.4);
-    color: var(--green);
+    border: 1px solid rgba(191,95,255,0.4);
+    color: var(--purple);
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
-
   .btn-secondary:hover {
-    border-color: var(--green);
-    box-shadow: 0 0 15px rgba(0,255,136,0.3);
+    border-color: var(--purple);
+    box-shadow: 0 0 15px rgba(191,95,255,0.3);
   }
 
-  /* HERO RIGHT - SYSTEM PANEL */
-  .hero-right {
-    position: relative;
-    z-index: 1;
-  }
+  /* HERO RIGHT */
+  .hero-right { position: relative; z-index: 1; }
 
   .sys-panel {
     background: var(--bg2);
@@ -303,7 +300,6 @@
     padding: 1.5rem;
     position: relative;
   }
-
   .sys-panel::before {
     content: '';
     position: absolute;
@@ -328,16 +324,8 @@
     letter-spacing: 2px;
   }
 
-  .sys-dots {
-    display: flex;
-    gap: 6px;
-  }
-
-  .sys-dots span {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-  }
-
+  .sys-dots { display: flex; gap: 6px; }
+  .sys-dots span { width: 8px; height: 8px; border-radius: 50%; }
   .sys-dots span:nth-child(1) { background: var(--red); }
   .sys-dots span:nth-child(2) { background: var(--yellow); }
   .sys-dots span:nth-child(3) { background: var(--green); }
@@ -372,10 +360,9 @@
     font-weight: 700;
     color: var(--cyan);
   }
-
   .stat-value.green { color: var(--green); }
   .stat-value.yellow { color: var(--yellow); }
-  .stat-value.red { color: var(--red); }
+  .stat-value.purple { color: var(--purple); }
 
   .stat-sub {
     font-family: var(--mono);
@@ -408,10 +395,9 @@
 
   .log-time { color: rgba(255,255,255,0.3); min-width: 50px; }
   .log-event { flex: 1; }
-  .log-status { }
   .status-ok { color: var(--green); }
   .status-warn { color: var(--yellow); }
-  .status-err { color: var(--red); }
+  .status-build { color: var(--purple); }
 
   .terminal-line {
     font-family: var(--mono);
@@ -422,7 +408,6 @@
     align-items: center;
     gap: 0.5rem;
   }
-
   .terminal-line::before { content: '$'; color: var(--cyan); }
 
   .cursor {
@@ -439,10 +424,7 @@
   }
 
   /* SECTIONS */
-  section {
-    padding: 6rem 4rem;
-    position: relative;
-  }
+  section { padding: 6rem 4rem; position: relative; }
 
   .section-header {
     margin-bottom: 3rem;
@@ -468,7 +450,6 @@
     font-weight: 700;
     color: #fff;
   }
-
   .section-title span { color: var(--cyan); }
 
   .section-line {
@@ -488,69 +469,60 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
   }
 
   .about-card {
     background: var(--bg3);
     border: 1px solid var(--border);
-    padding: 1.75rem;
+    padding: 1.5rem 1.25rem;
     position: relative;
     transition: border-color 0.3s, transform 0.3s;
     overflow: hidden;
   }
-
   .about-card:hover {
     border-color: var(--cyan);
     transform: translateY(-4px);
   }
-
   .about-card::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--cyan), var(--green));
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
     transform: scaleX(0);
     transition: transform 0.3s;
   }
-
   .about-card:hover::after { transform: scaleX(1); }
 
-  .card-icon {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
+  .card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
   .card-num {
-    font-family: var(--display);
+    font-family: var(--mono);
     font-size: 0.55rem;
     color: var(--cyan);
     letter-spacing: 3px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
-
   .card-title {
     font-family: var(--display);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #fff;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
     letter-spacing: 1px;
+    line-height: 1.4;
   }
-
   .card-desc {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--text);
-    line-height: 1.7;
+    line-height: 1.6;
     font-weight: 300;
   }
 
   /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
@@ -582,9 +554,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.03);
     transition: color 0.2s;
   }
-
   .skill-item:hover { color: var(--green); }
-
   .skill-item::before {
     content: '▸';
     color: var(--cyan);
@@ -594,7 +564,7 @@
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
@@ -605,34 +575,20 @@
     position: relative;
     transition: border-color 0.3s;
   }
-
   .project-card:hover { border-color: var(--cyan); }
-
-  .project-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    filter: grayscale(50%) brightness(0.7);
-    transition: filter 0.3s;
-    display: block;
-    background: var(--bg3);
-  }
-
-  .project-card:hover .project-img {
-    filter: grayscale(20%) brightness(0.9);
-  }
 
   .project-img-placeholder {
     width: 100%;
-    height: 160px;
+    height: 140px;
     background: var(--bg3);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--mono);
     font-size: 0.6rem;
-    color: var(--border);
+    color: rgba(0,245,255,0.2);
     border-bottom: 1px solid var(--border);
+    letter-spacing: 2px;
   }
 
   .project-tag {
@@ -649,7 +605,6 @@
   }
 
   .project-body { padding: 1.25rem; }
-
   .project-title {
     font-family: var(--display);
     font-size: 0.85rem;
@@ -657,7 +612,6 @@
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
   }
-
   .project-desc {
     font-size: 0.8rem;
     color: var(--text);
@@ -665,14 +619,12 @@
     margin-bottom: 1rem;
     font-weight: 300;
   }
-
   .project-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-bottom: 1rem;
   }
-
   .stack-tag {
     font-family: var(--mono);
     font-size: 0.55rem;
@@ -681,7 +633,6 @@
     padding: 0.15rem 0.5rem;
     letter-spacing: 1px;
   }
-
   .project-link {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -693,7 +644,6 @@
     gap: 0.5rem;
     transition: color 0.2s;
   }
-
   .project-link:hover { color: var(--cyan); }
   .project-link::after { content: '→'; }
 
@@ -704,58 +654,6 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .cert-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 0.3s;
-  }
-
-  .cert-card:hover { border-color: var(--yellow); }
-
-  .cert-year {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    color: var(--yellow);
-    letter-spacing: 2px;
-  }
-
-  .cert-title {
-    font-family: var(--display);
-    font-size: 0.8rem;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .cert-issuer {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--text);
-  }
-
-  .cert-badge {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    color: var(--green);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .cert-badge::before {
-    content: '✓';
-    color: var(--green);
-  }
-
   /* CONTACT */
   .contact-grid {
     display: grid;
@@ -764,7 +662,7 @@
     align-items: start;
   }
 
-  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
 
   .contact-item {
     background: var(--bg2);
@@ -774,16 +672,27 @@
     align-items: center;
     gap: 1rem;
     transition: border-color 0.3s;
+    position: relative;
   }
-
   .contact-item:hover { border-color: var(--cyan); }
-
-  .contact-icon {
-    font-size: 1.25rem;
-    min-width: 2rem;
-    text-align: center;
+  .contact-item::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 12px; height: 12px;
+    border-top: 2px solid var(--cyan);
+    border-left: 2px solid var(--cyan);
+  }
+  .contact-item::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 12px; height: 12px;
+    border-bottom: 2px solid var(--cyan);
+    border-right: 2px solid var(--cyan);
   }
 
+  .contact-icon { font-size: 1.25rem; min-width: 2rem; text-align: center; }
   .contact-label {
     font-family: var(--mono);
     font-size: 0.55rem;
@@ -792,7 +701,6 @@
     text-transform: uppercase;
     margin-bottom: 0.25rem;
   }
-
   .contact-value {
     font-family: var(--mono);
     font-size: 0.75rem;
@@ -805,7 +713,6 @@
     border: 1px solid var(--border);
     overflow: hidden;
   }
-
   .terminal-bar {
     background: rgba(0,245,255,0.06);
     padding: 0.6rem 1rem;
@@ -814,38 +721,51 @@
     gap: 0.5rem;
     border-bottom: 1px solid var(--border);
   }
-
   .terminal-bar span { font-family: var(--mono); font-size: 0.6rem; color: var(--text); }
-
   .terminal-body {
     padding: 1.25rem;
     font-family: var(--mono);
     font-size: 0.7rem;
     line-height: 1.9;
   }
-
   .t-prompt { color: var(--cyan); }
   .t-cmd { color: #fff; }
   .t-out { color: var(--text); padding-left: 1rem; }
   .t-out.green { color: var(--green); }
   .t-out.yellow { color: var(--yellow); }
+  .t-out.purple { color: var(--purple); }
 
   /* FOOTER */
   footer {
-    background: var(--bg2);
+    background: var(--bg);
     border-top: 1px solid var(--border);
     padding: 2rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
   }
 
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand-block {}
   .footer-brand {
     font-family: var(--display);
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     color: var(--cyan);
+    letter-spacing: 3px;
+    margin-bottom: 0.25rem;
+  }
+  .footer-brand span { color: var(--purple); }
+  .footer-sub {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text);
     letter-spacing: 2px;
   }
 
@@ -854,7 +774,6 @@
     gap: 1.5rem;
     list-style: none;
   }
-
   .footer-links a {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -863,8 +782,31 @@
     letter-spacing: 1px;
     transition: color 0.2s;
   }
-
   .footer-links a:hover { color: var(--cyan); }
+
+  .footer-socials {
+    display: flex;
+    gap: 1rem;
+  }
+  .footer-social-link {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-social-link:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 
   .footer-copy {
     font-family: var(--mono);
@@ -873,27 +815,21 @@
     letter-spacing: 1px;
   }
 
-  /* CORNER BRACKETS */
-  .bracket {
-    position: relative;
+  .footer-sys {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--purple);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
-
-  .bracket::before, .bracket::after {
+  .footer-sys::before {
     content: '';
-    position: absolute;
-    width: 12px; height: 12px;
-  }
-
-  .bracket::before {
-    top: -1px; left: -1px;
-    border-top: 2px solid var(--cyan);
-    border-left: 2px solid var(--cyan);
-  }
-
-  .bracket::after {
-    bottom: -1px; right: -1px;
-    border-bottom: 2px solid var(--cyan);
-    border-right: 2px solid var(--cyan);
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
@@ -905,17 +841,14 @@
   @media (max-width: 900px) {
     #home { grid-template-columns: 1fr; padding: 80px 1.5rem 2rem; }
     section { padding: 4rem 1.5rem; }
-    .about-grid, .skills-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; }
     .nav-status { display: none; }
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
-  }
-
-  @media (max-width: 1200px) {
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -923,13 +856,12 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#home">AET<span>HER</span>.SYS</a>
+  <a class="nav-logo" href="#home">AETHER<span>.SYS</span></a>
   <ul class="nav-links">
     <li><a href="#home">_home</a></li>
     <li><a href="#about">_about</a></li>
     <li><a href="#skills">_skills</a></li>
     <li><a href="#projects">_work</a></li>
-    <li><a href="#certificates">_certs</a></li>
     <li><a href="#contact">_contact</a></li>
   </ul>
   <div class="nav-status">
@@ -943,14 +875,24 @@
   <div class="hero-bg-grid"></div>
 
   <div class="hero-left">
-    <div class="hero-tag">SYSTEM INITIALIZED</div>
+    <div class="hero-tag">SYSTEM INITIALIZED — NODE ACTIVE</div>
+    <div class="hero-alias">// AETHER ASAHINA</div>
     <h1 class="hero-name">
-      <span class="glitch" data-text="AetherAsahina">Aether Asahina</span>
+      <span class="glitch" data-text="NAUFAL">NAUFAL</span>
     </h1>
     <div class="hero-sub">// MUHAMMAD NAUFAL DZAKIY</div>
+
+    <div class="hero-roles">
+      <span class="role-tag">Web Developer</span>
+      <span class="role-tag">Python Dev</span>
+      <span class="role-tag">IoT / Embedded</span>
+      <span class="role-tag">Automation</span>
+      <span class="role-tag">Mini App Builder</span>
+    </div>
+
     <p class="hero-desc">
-      Web &amp; Mobile Developer · Web Developer· Game developer.<br>
-      Building innovative digital solutions, crafting the perfect cup, and capturing stories through every frame.
+      Building web systems, scripting automation tools, and bridging code with hardware.
+      Turning ideas into deployable software — one commit at a time.
     </p>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">VIEW_WORK</a>
@@ -959,9 +901,9 @@
   </div>
 
   <div class="hero-right">
-    <div class="sys-panel bracket">
+    <div class="sys-panel">
       <div class="sys-panel-header">
-        <span class="sys-panel-title">// PROFILE_OVERVIEW.SYS</span>
+        <span class="sys-panel-title">// AETHER_OVERVIEW.SYS</span>
         <div class="sys-dots">
           <span></span><span></span><span></span>
         </div>
@@ -970,8 +912,8 @@
       <div class="sys-stats">
         <div class="stat-box">
           <div class="stat-label">PROJECTS</div>
-          <div class="stat-value">3+</div>
-          <div class="stat-sub">▲ active</div>
+          <div class="stat-value">4+</div>
+          <div class="stat-sub">▲ deployed</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">UPTIME</div>
@@ -979,38 +921,38 @@
           <div class="stat-sub">stable</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">CERTS</div>
-          <div class="stat-value yellow">3</div>
-          <div class="stat-sub">✓ verified</div>
+          <div class="stat-label">STACK</div>
+          <div class="stat-value yellow">10+</div>
+          <div class="stat-sub">loaded</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">SKILLS</div>
-          <div class="stat-value red">15+</div>
-          <div class="stat-sub">loaded</div>
+          <div class="stat-label">STATUS</div>
+          <div class="stat-value purple">DEV</div>
+          <div class="stat-sub">▶ active</div>
         </div>
       </div>
 
       <div class="activity-log">
-        <div class="log-header">// RECENT_ACTIVITY</div>
+        <div class="log-header">// RECENT_COMMITS</div>
         <div class="log-line">
-          <span class="log-time">14:30</span>
-          <span class="log-event">Wedding Invitation App</span>
+          <span class="log-time">feat:</span>
+          <span class="log-event">Smart Coffee POS v2</span>
           <span class="log-status status-ok">LIVE</span>
         </div>
         <div class="log-line">
-          <span class="log-time">11:15</span>
-          <span class="log-event">AM Flooring Website</span>
-          <span class="log-status status-ok">LIVE</span>
+          <span class="log-time">build:</span>
+          <span class="log-event">Automation Python Tool</span>
+          <span class="log-status status-ok">DONE</span>
         </div>
         <div class="log-line">
-          <span class="log-time">09:40</span>
-          <span class="log-event">Barista BNSP Cert</span>
-          <span class="log-status status-ok">VERIFIED</span>
+          <span class="log-time">wip:</span>
+          <span class="log-event">Crypto Finance Tracker</span>
+          <span class="log-status status-build">WIP</span>
         </div>
         <div class="log-line">
-          <span class="log-time">08:00</span>
-          <span class="log-event">Warkop TVB</span>
-          <span class="log-status status-warn">MAINTENANCE</span>
+          <span class="log-time">init:</span>
+          <span class="log-event">Portfolio System</span>
+          <span class="log-status status-ok">THIS</span>
         </div>
       </div>
 
@@ -1026,30 +968,42 @@
   <div class="section-header">
     <span class="section-label">ABOUT</span>
     <div>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_02</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_01</div>
       <h2 class="section-title">ABOUT <span>ME</span></h2>
     </div>
     <div class="section-line"></div>
   </div>
 
   <div class="about-grid">
-    <div class="about-card bracket">
-      <span class="card-icon">⌨️</span>
+    <div class="about-card">
+      <span class="card-icon">🌐</span>
       <div class="card-num">NODE_01</div>
-      <div class="card-title">WEB & MOBILE DEV</div>
-      <p class="card-desc">Creating innovative mobile and web applications using modern technologies like Flutter, SvelteKit, and Laravel.</p>
+      <div class="card-title">WEB DEVELOPER</div>
+      <p class="card-desc">Building clean, fast, and functional web apps using modern frameworks and vanilla code.</p>
     </div>
-    <div class="about-card bracket">
-      <span class="card-icon">☕</span>
+    <div class="about-card">
+      <span class="card-icon">🐍</span>
       <div class="card-num">NODE_02</div>
-      <div class="card-title">PASSIONATE BARISTA</div>
-      <p class="card-desc">A true coffee enthusiast who finds art in every cup — from perfect espresso extraction to captivating latte art.</p>
+      <div class="card-title">PYTHON DEVELOPER</div>
+      <p class="card-desc">Scripting tools, data utilities, bots, and backend logic with Python.</p>
     </div>
-    <div class="about-card bracket">
-      <span class="card-icon">📷</span>
+    <div class="about-card">
+      <span class="card-icon">📡</span>
       <div class="card-num">NODE_03</div>
-      <div class="card-title">PHOTOGRAPHER</div>
-      <p class="card-desc">Capturing meaningful moments and telling stories through the lens with creativity and passion.</p>
+      <div class="card-title">IoT / EMBEDDED</div>
+      <p class="card-desc">Interfacing code with hardware — sensors, microcontrollers, and low-level systems.</p>
+    </div>
+    <div class="about-card">
+      <span class="card-icon">⚙️</span>
+      <div class="card-num">NODE_04</div>
+      <div class="card-title">AUTOMATION</div>
+      <p class="card-desc">Building scripts and tools to automate repetitive tasks and workflows efficiently.</p>
+    </div>
+    <div class="about-card">
+      <span class="card-icon">🧩</span>
+      <div class="card-num">NODE_05</div>
+      <div class="card-title">MINI APP BUILDER</div>
+      <p class="card-desc">Shipping POS systems, utilities, and lightweight apps that solve real problems.</p>
     </div>
   </div>
 </section>
@@ -1059,7 +1013,7 @@
   <div class="section-header">
     <span class="section-label">SKILLS</span>
     <div>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_03</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_02</div>
       <h2 class="section-title">SKILL <span>MATRIX</span></h2>
     </div>
     <div class="section-line"></div>
@@ -1067,35 +1021,28 @@
 
   <div class="skills-grid">
     <div class="skill-group">
-      <div class="skill-group-title">// DEVELOPMENT</div>
-      <div class="skill-item">Flutter</div>
-      <div class="skill-item">Dart</div>
-      <div class="skill-item">SvelteKit</div>
-      <div class="skill-item">TypeScript</div>
-      <div class="skill-item">Tailwind CSS</div>
-      <div class="skill-item">PostgreSQL</div>
+      <div class="skill-group-title">// LANGUAGES & WEB</div>
+      <div class="skill-item">HTML / CSS / JavaScript</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">SQL</div>
+      <div class="skill-item">Bash / Shell Script</div>
+      <div class="skill-item">C (Embedded Basics)</div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title">// BARISTA</div>
-      <div class="skill-item">Espresso Extraction</div>
-      <div class="skill-item">Latte Art</div>
-      <div class="skill-item">Mocktail</div>
-      <div class="skill-item">Brewing Methods</div>
-      <div class="skill-item">Milk-Based Drinks</div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">// TOOLS</div>
-      <div class="skill-item">Git</div>
+      <div class="skill-group-title">// SYSTEMS & TOOLS</div>
+      <div class="skill-item">Git & GitHub</div>
+      <div class="skill-item">Linux / CLI</div>
       <div class="skill-item">VS Code</div>
-      <div class="skill-item">Android Studio</div>
-      <div class="skill-item">Laragon</div>
+      <div class="skill-item">Networking Basics</div>
+      <div class="skill-item">API Integration</div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title">// PHOTOGRAPHY</div>
-      <div class="skill-item">Model Photography</div>
-      <div class="skill-item">Photo Editing</div>
-      <div class="skill-item">Adobe Lightroom</div>
-      <div class="skill-item">CapCut</div>
+      <div class="skill-group-title">// DOMAINS</div>
+      <div class="skill-item">IoT Basics</div>
+      <div class="skill-item">Automation Scripting</div>
+      <div class="skill-item">POS & Mini Apps</div>
+      <div class="skill-item">Web Scraping</div>
+      <div class="skill-item">Problem Solving</div>
     </div>
   </div>
 </section>
@@ -1105,99 +1052,81 @@
   <div class="section-header">
     <span class="section-label">WORK</span>
     <div>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_04</div>
-      <h2 class="section-title">MY <span>WORK</span></h2>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_03</div>
+      <h2 class="section-title">MY <span>PROJECTS</span></h2>
     </div>
     <div class="section-line"></div>
   </div>
 
   <div class="projects-grid">
     <div class="project-card">
-      <div class="project-img-placeholder">[ IMG_UNDANGAN_DIGITAL ]</div>
-      <span class="project-tag">WEB_APP</span>
+      <div class="project-img-placeholder">[ SMART_COFFEE_POS ]</div>
+      <span class="project-tag">POS APP</span>
       <div class="project-body">
-        <div class="project-title">UNDANGAN DIGITAL</div>
-        <p class="project-desc">Digital wedding invitation with elegant design, countdown timer, and Google Maps integration.</p>
+        <div class="project-title">SMART COFFEE POS</div>
+        <p class="project-desc">A point-of-sale system built for coffee shops. Handles orders, menu management, and daily sales reports.</p>
         <div class="project-stack">
-          <span class="stack-tag">SvelteKit</span>
-          <span class="stack-tag">TypeScript</span>
-          <span class="stack-tag">Tailwind</span>
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">SQLite</span>
+          <span class="stack-tag">Tkinter</span>
         </div>
-        <a href="https://undangan-digital-topaz.vercel.app" class="project-link" target="_blank">VIEW_LIVE</a>
+        <a href="https://github.com/aether-asahina" class="project-link" target="_blank">VIEW_REPO</a>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img-placeholder">[ IMG_AM_FLOORING ]</div>
-      <span class="project-tag">COMPANY</span>
+      <div class="project-img-placeholder">[ AUTOMATION_TOOL ]</div>
+      <span class="project-tag">PYTHON TOOL</span>
       <div class="project-body">
-        <div class="project-title">AM SPORTS FLOORING</div>
-        <p class="project-desc">Company profile website for sports flooring business with modern responsive design.</p>
+        <div class="project-title">AUTOMATION UTILITY</div>
+        <p class="project-desc">A Python-based automation toolkit for repetitive tasks — file management, scheduled jobs, and workflow scripting.</p>
         <div class="project-stack">
-          <span class="stack-tag">SvelteKit</span>
-          <span class="stack-tag">TypeScript</span>
-          <span class="stack-tag">Tailwind</span>
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Schedule</span>
+          <span class="stack-tag">OS / Subprocess</span>
         </div>
-        <a href="https://amflooring.vercel.app" class="project-link" target="_blank">VIEW_LIVE</a>
+        <a href="https://github.com/aether-asahina" class="project-link" target="_blank">VIEW_REPO</a>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img-placeholder">[ IMG_WARKOP_TVB ]</div>
-      <span class="project-tag" style="background:var(--yellow);color:var(--bg)">MAINTENANCE</span>
+      <div class="project-img-placeholder">[ CRYPTO_TRACKER ]</div>
+      <span class="project-tag" style="background:var(--yellow);color:var(--bg)">WIP</span>
       <div class="project-body">
-        <div class="project-title">WARKOP TVB</div>
-        <p class="project-desc">Coffee shop website — currently under maintenance. Built with Bootstrap, PHP, and MySQL.</p>
+        <div class="project-title">CRYPTO / FINANCE TRACKER</div>
+        <p class="project-desc">Real-time crypto and finance tracker pulling live data from public APIs, with alert system and portfolio summary.</p>
         <div class="project-stack">
-          <span class="stack-tag">Bootstrap</span>
-          <span class="stack-tag">PHP</span>
-          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">API</span>
+          <span class="stack-tag">HTML/CSS</span>
         </div>
-        <span class="project-link" style="color:var(--yellow);cursor:default">UNDER_MAINTENANCE</span>
+        <span class="project-link" style="color:var(--yellow);cursor:default">IN_PROGRESS</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CERTS -->
-<section id="certificates">
-  <div class="section-header">
-    <span class="section-label">CERTS</span>
-    <div>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_05</div>
-      <h2 class="section-title">CERTS & <span>ACHIEVEMENTS</span></h2>
-    </div>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-year">2024</div>
-      <div class="cert-title">BARISTA CERT — BNSP</div>
-      <div class="cert-issuer">Badan Nasional Sertifikasi Profesi</div>
-      <div class="cert-badge">VERIFIED</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-year">2024</div>
-      <div class="cert-title">BARISTA CERT — BLKK</div>
-      <div class="cert-issuer">BLKK Yayasan Sahabat Anak Bangsa</div>
-      <div class="cert-badge">VERIFIED</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-year">2025</div>
-      <div class="cert-title">SEMINAR NASIONAL</div>
-      <div class="cert-issuer">Universitas Sumatra Utara</div>
-      <div class="cert-badge">VERIFIED</div>
+    <div class="project-card">
+      <div class="project-img-placeholder">[ PORTFOLIO_SYS ]</div>
+      <span class="project-tag" style="background:var(--purple);color:#fff)">LIVE</span>
+      <div class="project-body">
+        <div class="project-title">AETHER PORTFOLIO SYSTEM</div>
+        <p class="project-desc">This portfolio — a cyberpunk dashboard-themed personal site built from scratch with pure HTML, CSS, and JS.</p>
+        <div class="project-stack">
+          <span class="stack-tag">HTML</span>
+          <span class="stack-tag">CSS</span>
+          <span class="stack-tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/aether-asahina" class="project-link" target="_blank">VIEW_REPO</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="background:var(--bg2);border-top:1px solid var(--border);">
+<section id="contact">
   <div class="section-header">
     <span class="section-label">CONTACT</span>
     <div>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_06</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);letter-spacing:3px;margin-bottom:0.5rem;">// SECTION_04</div>
       <h2 class="section-title">GET IN <span>TOUCH</span></h2>
     </div>
     <div class="section-line"></div>
@@ -1205,32 +1134,25 @@
 
   <div class="contact-grid">
     <div class="contact-info">
-      <div class="contact-item bracket">
+      <div class="contact-item">
         <span class="contact-icon">✉</span>
         <div>
           <div class="contact-label">EMAIL</div>
-          <div class="contact-value">gifary024@email.com</div>
+          <div class="contact-value">azkylyss@gmail.com</div>
         </div>
       </div>
-      <div class="contact-item bracket">
-        <span class="contact-icon">📞</span>
-        <div>
-          <div class="contact-label">PHONE</div>
-          <div class="contact-value">+62 851-8274-8023</div>
-        </div>
-      </div>
-      <div class="contact-item bracket">
-        <span class="contact-icon">📸</span>
-        <div>
-          <div class="contact-label">INSTAGRAM</div>
-          <div class="contact-value">@gif_ry02</div>
-        </div>
-      </div>
-      <div class="contact-item bracket">
+      <div class="contact-item">
         <span class="contact-icon">⌨</span>
         <div>
           <div class="contact-label">GITHUB</div>
-          <div class="contact-value">github.com/gifary500D</div>
+          <div class="contact-value">github.com/aether-asahina</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🎭</span>
+        <div>
+          <div class="contact-label">ALIAS / BRAND</div>
+          <div class="contact-value" style="color:var(--purple)">Aether Asahina</div>
         </div>
       </div>
     </div>
@@ -1238,24 +1160,24 @@
     <div class="terminal">
       <div class="terminal-bar">
         <div class="sys-dots" style="margin-right:0.75rem"><span></span><span></span><span></span></div>
-        <span>bash — gifary@portfolio:~</span>
+        <span>bash — aether@sys:~</span>
       </div>
       <div class="terminal-body">
-        <div><span class="t-prompt">gifary@portfolio:~$ </span><span class="t-cmd">whoami</span></div>
-        <div class="t-out green">Muhammad Gifary</div>
+        <div><span class="t-prompt">aether@sys:~$ </span><span class="t-cmd">whoami</span></div>
+        <div class="t-out purple">Muhammad Naufal Dzakiy // Aether Asahina</div>
         <br>
-        <div><span class="t-prompt">gifary@portfolio:~$ </span><span class="t-cmd">cat services.txt</span></div>
-        <div class="t-out">• Mobile App Development (Flutter)</div>
-        <div class="t-out">• Web Development (SvelteKit / Laravel)</div>
-        <div class="t-out">• Photography Services</div>
-        <div class="t-out">• Barista Consultation</div>
+        <div><span class="t-prompt">aether@sys:~$ </span><span class="t-cmd">cat services.txt</span></div>
+        <div class="t-out">• Web Development (HTML/CSS/JS/Python)</div>
+        <div class="t-out">• Automation Tool Development</div>
+        <div class="t-out">• IoT / Embedded Systems</div>
+        <div class="t-out">• POS & Mini App Building</div>
         <br>
-        <div><span class="t-prompt">gifary@portfolio:~$ </span><span class="t-cmd">ping gifary024@email.com</span></div>
-        <div class="t-out yellow">PING gifary024@email.com: 56 bytes of data</div>
-        <div class="t-out green">64 bytes: icmp_seq=1 ttl=64 time=0.1ms</div>
-        <div class="t-out green">Response received — ready to collaborate!</div>
+        <div><span class="t-prompt">aether@sys:~$ </span><span class="t-cmd">ping azkylyss@gmail.com</span></div>
+        <div class="t-out yellow">PING azkylyss@gmail.com: 56 bytes of data</div>
+        <div class="t-out green">64 bytes: icmp_seq=1 ttl=64 time=0.2ms</div>
+        <div class="t-out green">Node online — ready to collaborate.</div>
         <br>
-        <div><span class="t-prompt">gifary@portfolio:~$ </span><span class="t-cmd"><span class="cursor"></span></span></div>
+        <div><span class="t-prompt">aether@sys:~$ </span><span class="t-cmd"><span class="cursor"></span></span></div>
       </div>
     </div>
   </div>
@@ -1263,18 +1185,34 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">GIFARY<span style="color:var(--text)">.SYS</span></div>
-  <ul class="footer-links">
-    <li><a href="#home">_home</a></li>
-    <li><a href="#about">_about</a></li>
-    <li><a href="#projects">_work</a></li>
-    <li><a href="#contact">_contact</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 MUHAMMAD GIFARY // ALL RIGHTS RESERVED</div>
+  <div class="footer-top">
+    <div class="footer-brand-block">
+      <div class="footer-brand">AETHER<span>.SYS</span></div>
+      <div class="footer-sub">// MUHAMMAD NAUFAL DZAKIY · AETHER ASAHINA</div>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="#home">_home</a></li>
+      <li><a href="#about">_about</a></li>
+      <li><a href="#skills">_skills</a></li>
+      <li><a href="#projects">_work</a></li>
+      <li><a href="#contact">_contact</a></li>
+    </ul>
+
+    <div class="footer-socials">
+      <a href="https://github.com/aether-asahina" class="footer-social-link" target="_blank">GitHub</a>
+      <a href="mailto:azkylyss@gmail.com" class="footer-social-link">Email</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 AETHER ASAHINA // ALL RIGHTS RESERVED</div>
+    <div class="footer-sys">AETHER.SYS v1.0 — ALL NODES NOMINAL</div>
+  </div>
 </footer>
 
 <script>
-  // Live clock in nav
+  // Live clock
   function updateTime() {
     const now = new Date();
     const t = [now.getHours(), now.getMinutes(), now.getSeconds()]
@@ -1284,12 +1222,13 @@
   setInterval(updateTime, 1000);
   updateTime();
 
-  // Terminal typing effect
+  // Typing animation
   const lines = [
-    'status --all',
-    'npm run build',
+    'python run_tools.py --all',
     'git push origin main',
-    'flutter run --release',
+    'aether --status',
+    'ls -la /projects/',
+    'pip install aether-utils',
   ];
   let li = 0, ci = 0, deleting = false;
   const el = document.getElementById('typedText');
@@ -1317,7 +1256,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.about-card, .skill-group, .project-card, .cert-card, .contact-item').forEach(el => {
+  document.querySelectorAll('.about-card, .skill-group, .project-card, .contact-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
